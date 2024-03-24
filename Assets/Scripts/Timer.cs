@@ -9,10 +9,15 @@ public class Timer : MonoBehaviour
 {
     // timer display text box
     public Text timerDisplay = null;
+    // wpm display text box
+    public Text WPMDisplay = null;
     // time on the timer
     private float timeValue = 60f;
     // Typer element
     public Typer Typer = null;
+
+    // words per minute
+    float WPM = 0;
 
     // Update is called once per frame
     private void Update()
@@ -28,6 +33,7 @@ public class Timer : MonoBehaviour
 
 
         DisplayTime(timeValue);
+        DisplayWPM();
     }
 
     private void DisplayTime(float time)
@@ -36,12 +42,12 @@ public class Timer : MonoBehaviour
         timerDisplay.text = string.Format("Time Remaining: {0:00}s", seconds);
     }
 
-    public float GetWPM()
+    private void DisplayWPM()
     {
         float numWords = Typer.getWordsTyped(); // get words
         float secondsElapsed = 60f - timeValue; // get time
-        float minutesElapsed = secondsElapsed / 60f;
-        float WPM = numWords / minutesElapsed;
-        return WPM;
+        float minutesElapsed = secondsElapsed / 60f; // get minures
+        WPM = numWords / minutesElapsed; // get wpm
+        WPMDisplay.text = string.Format("WPM: {0:00}", WPM);
     }
 }
