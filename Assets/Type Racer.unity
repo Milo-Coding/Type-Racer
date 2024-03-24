@@ -930,6 +930,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1396272347}
     - target: {fileID: 6659003509284658469, guid: 45af869a78dcd4b8090763538c50b824, type: 3}
+      propertyPath: WPMDisplay
+      value: 
+      objectReference: {fileID: 1081557083}
+    - target: {fileID: 6659003509284658469, guid: 45af869a78dcd4b8090763538c50b824, type: 3}
       propertyPath: timerDisplay
       value: 
       objectReference: {fileID: 572825443011583013}

@@ -19,21 +19,30 @@ public class Timer : MonoBehaviour
     // words per minute
     float WPM = 0;
 
+    // this can also update sentance display to let the player know when the game is over
+    public Text sentanceDisplay = null;
+
     // Update is called once per frame
     private void Update()
     {
         if (timeValue > 0)
         {
+            // time ticks
             timeValue -= Time.deltaTime;
+            // recalculate wpm
+            DisplayWPM();
+            // make sure text is white
+            sentanceDisplay.color = Color.white;
         }
         else 
         {
+            // timer stops at 0
             timeValue = 0f;
+            // make sure text is red
+            sentanceDisplay.color = Color.red;
         }
 
-
         DisplayTime(timeValue);
-        DisplayWPM();
     }
 
     private void DisplayTime(float time)
